@@ -9,11 +9,16 @@ button {
     background-color: rgb(255, 248, 225);
     font-weight: 600;
     font-size: .9rem;
+    border:  rgb(255, 235, 168) 2px solid;
+    transition: background-color .5s;
+    color: rgb(43, 38, 25);
 }
 
 button:hover {
     cursor: pointer;
     background-color: rgb(255, 235, 168);
+    border:  rgb(219, 196, 120) 2px solid;
+    transition: background-color 1s;
 }
 
 #resultado {
@@ -63,4 +68,9 @@ input:focus {
 
 .btn {
     margin: 1rem;
+}
+
+.gifContainer {
+    text-align: center;
+    margin-top: 2rem;
 }
