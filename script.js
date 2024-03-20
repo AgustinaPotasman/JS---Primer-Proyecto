@@ -14,6 +14,9 @@ let gifMuyMal = "https://giphy.com/embed/XxqF3LzsPPLPZKzJkQ";
 let gifPerfect = "https://giphy.com/embed/KB7Moe2Oj0BXeDjvDp";
 let gifVeryGood = "https://giphy.com/embed/hiIbwkor1bsRTsJ63J";
 let gifGoodEnough = "https://giphy.com/embed/3o72FcJmLzIdYJdmDe";
+let gifMalisimo = "https://giphy.com/embed/keZws2GcbxRN5RBoD5";
+let gifBuenisimo = "https://giphy.com/embed/7Dv1jiwi7LfZDMoPPA";
+
 
 const checkInput = (inputVal) => {
     if(parseInt((inputVal.value), 10) <= 0 || parseInt((inputVal.value), 10) >= 11 || isNaN(inputVal.value) == true){
@@ -77,12 +80,17 @@ const CalcPromedio = () => {
     let promedio = sumNotas / materias;
     promedio = promedio.toFixed(2);
     let resultado =  document.getElementById("resultado");
-    if(promedio >= 6){
+    if(promedio >= 8){
         resultado.style.color = "green";
-        gif.src = gifGood;
+        gif.src = gifBuenisimo;
+    }else if(promedio >= 6 && promedio < 8){
+        resultado.style.color = "green";
+        let gifs = [gifVeryGood,gifGoodEnough];
+        gif.src = gifs[(Math.floor(Math.random() * gifs.length))];
     }else{
         resultado.style.color = "red";
-        gif.src = gifBad;
+        let gifs = [gifMalisimo,gifMaso,gifMuyMal];
+        gif.src = gifs[(Math.floor(Math.random() * gifs.length))];
     }
     resultado.innerText = "Tu promedio es de: " + promedio;
 }
