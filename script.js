@@ -89,16 +89,17 @@ const CalcPromedio = () => {
 
 const NotaMayor = () => {
     let index = [];
-    let materias = ["Matemática", "Lengua", "EFSI"]
-    let notas = [matematica.value, lengua.value, efsi.value];
+    let materias = ["Matemática", "Lengua", "EFSI"];
+    let notas = [ matematica.value, lengua.value, efsi.value ];
     let i = notas.length - 1;
     let target = Math.max(...notas);
     while(i != -1){
-        if(notas[i] == target){
+        if(notas[i] == target){ // && typeof notas[i] == "number"
             index.push(i);
         }
         i--;
     }
+
     let resultado =  document.getElementById("resultado");
     resultado.style.color = "blue";
     if(index.length > 1){
@@ -108,14 +109,14 @@ const NotaMayor = () => {
     }
 
     for (let i = 0; i < index.length; i++) {
-        resultado.innerText += (" " + materias[i]);
+        resultado.innerText += (" " + materias[index[i]]);
         if(i < index.length - 2){
             resultado.innerText += ", ";
         } else if(i < index.length - 1)    {
             resultado.innerText += " y ";
         }           
     }
-    if(notas[index] >= 8){
+    if(notas[index[0]] >= 8){
         let gifs = [gifGood, gifPerfect];
         gif.src = gifs[(Math.floor(Math.random() * gifs.length))];
     }else if(notas[index] >= 6 && notas[index] < 8){
